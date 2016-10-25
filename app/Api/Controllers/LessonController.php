@@ -8,7 +8,6 @@
 
 namespace App\Api\Controllers;
 
-
 use App\Api\Transformers\LessonTransformer;
 use App\Http\Requests\LessonIndexRequest;
 use App\Http\Requests\LessonStoreRequest;
@@ -34,6 +33,7 @@ class LessonController extends ApiController
 
 //        return $this->response->collection($lessons, new LessonTransformer());
         return $this->response->paginator($lessons, new LessonTransformer());
+//        return $this->paginator($lessons, new LessonTransformer());
     }
 
     public function store(LessonStoreRequest $request)

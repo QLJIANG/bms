@@ -8,7 +8,6 @@
 
 namespace App\Api\Transformers;
 
-
 use App\Lesson;
 use League\Fractal\TransformerAbstract;
 

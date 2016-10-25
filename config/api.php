@@ -169,6 +169,9 @@ return [
 
     'auth' => [
         'jwt' => 'Dingo\Api\Auth\Provider\JWT',
+        //'jwt' => function ($app) {
+        //    return new Dingo\Api\Auth\Provider\JWT($app['Tymon\JWTAuth\JWTAuth']);
+        //}
     ],
 
     /*
