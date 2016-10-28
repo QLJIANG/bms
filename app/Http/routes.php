@@ -1,11 +1,6 @@
 <?php
 //Auth::loginUsingId(2);
 
-Route::get('/', function () {
-    return 'this is the api.dev';
-});
-
-
 $api = app('Dingo\Api\Routing\Router');
 
 //$dispatcher = app('Dingo\Api\Dispatcher');
@@ -13,7 +8,7 @@ $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', function ($api) {
 
     $api->get('/', function () {
-        return 'this is the api.laravel.dev';
+        return ['api.laravel.dev'];
     });
 
     $api->group(['namespace' => 'App\Api\Controllers'], function ($api) {
