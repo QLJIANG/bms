@@ -26,7 +26,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['username', 'password'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -39,4 +39,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return $this->password;//如果密码字段不是默认的password，需要在这里指定
     }
+
+    public function bms()
+    {
+        return $this->belongsToMany(Bms::class, 'bms_user', 'user_id', 'bms_id');
+    }
+
 }

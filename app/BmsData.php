@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class OauthClient extends Model
+class BmsData extends Model
 {
-    //
+    protected $table = 'bms_data';
 }
