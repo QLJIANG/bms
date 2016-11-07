@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2016-10-25.
+    * Generated on 2016-11-07.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -21,7 +21,6 @@ namespace PHPSTORM_META {
             'Illuminate\Contracts\Debug\ExceptionHandler' instanceof \App\Exceptions\Handler,
             'auth' instanceof \Illuminate\Auth\AuthManager,
             'auth.driver' instanceof \Illuminate\Auth\Guard,
-            'Illuminate\Contracts\Auth\Authenticatable' instanceof \App\User,
             'Illuminate\Contracts\Auth\Access\Gate' instanceof \Illuminate\Auth\Access\Gate,
             'illuminate.route.dispatcher' instanceof \Illuminate\Routing\ControllerDispatcher,
             'cookie' instanceof \Illuminate\Cookie\CookieJar,
@@ -88,7 +87,6 @@ namespace PHPSTORM_META {
             'LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware' instanceof \LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware,
             'LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware' instanceof \LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware,
             'LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware' instanceof \LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware,
-            'hash' instanceof \Illuminate\Hashing\BcryptHasher,
             'Tymon\JWTAuth\JWTAuth' instanceof \Tymon\JWTAuth\JWTAuth,
             'Tymon\JWTAuth\Providers\User\UserInterface' instanceof \Tymon\JWTAuth\Providers\User\EloquentUserAdapter,
             'Tymon\JWTAuth\Providers\JWT\JWTInterface' instanceof \Tymon\JWTAuth\Providers\JWT\NamshiAdapter,
@@ -158,6 +156,9 @@ namespace PHPSTORM_META {
             'command.controller.make' instanceof \Illuminate\Routing\Console\ControllerMakeCommand,
             'command.middleware.make' instanceof \Illuminate\Routing\Console\MiddlewareMakeCommand,
             'command.session.database' instanceof \Illuminate\Session\Console\SessionTableCommand,
+            'hash' instanceof \Illuminate\Hashing\BcryptHasher,
+            'swift.transport' instanceof \Illuminate\Mail\TransportManager,
+            'swift.mailer' instanceof \Swift_Mailer,
             'mailer' instanceof \Illuminate\Mail\Mailer,
             'Illuminate\Contracts\Pipeline\Hub' instanceof \Illuminate\Pipeline\Hub,
             'queue' instanceof \Illuminate\Queue\QueueManager,
@@ -191,7 +192,6 @@ namespace PHPSTORM_META {
             'Illuminate\Contracts\Debug\ExceptionHandler' instanceof \App\Exceptions\Handler,
             'auth' instanceof \Illuminate\Auth\AuthManager,
             'auth.driver' instanceof \Illuminate\Auth\Guard,
-            'Illuminate\Contracts\Auth\Authenticatable' instanceof \App\User,
             'Illuminate\Contracts\Auth\Access\Gate' instanceof \Illuminate\Auth\Access\Gate,
             'illuminate.route.dispatcher' instanceof \Illuminate\Routing\ControllerDispatcher,
             'cookie' instanceof \Illuminate\Cookie\CookieJar,
@@ -258,7 +258,6 @@ namespace PHPSTORM_META {
             'LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware' instanceof \LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware,
             'LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware' instanceof \LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware,
             'LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware' instanceof \LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware,
-            'hash' instanceof \Illuminate\Hashing\BcryptHasher,
             'Tymon\JWTAuth\JWTAuth' instanceof \Tymon\JWTAuth\JWTAuth,
             'Tymon\JWTAuth\Providers\User\UserInterface' instanceof \Tymon\JWTAuth\Providers\User\EloquentUserAdapter,
             'Tymon\JWTAuth\Providers\JWT\JWTInterface' instanceof \Tymon\JWTAuth\Providers\JWT\NamshiAdapter,
@@ -328,6 +327,9 @@ namespace PHPSTORM_META {
             'command.controller.make' instanceof \Illuminate\Routing\Console\ControllerMakeCommand,
             'command.middleware.make' instanceof \Illuminate\Routing\Console\MiddlewareMakeCommand,
             'command.session.database' instanceof \Illuminate\Session\Console\SessionTableCommand,
+            'hash' instanceof \Illuminate\Hashing\BcryptHasher,
+            'swift.transport' instanceof \Illuminate\Mail\TransportManager,
+            'swift.mailer' instanceof \Swift_Mailer,
             'mailer' instanceof \Illuminate\Mail\Mailer,
             'Illuminate\Contracts\Pipeline\Hub' instanceof \Illuminate\Pipeline\Hub,
             'queue' instanceof \Illuminate\Queue\QueueManager,
@@ -361,7 +363,6 @@ namespace PHPSTORM_META {
             'Illuminate\Contracts\Debug\ExceptionHandler' instanceof \App\Exceptions\Handler,
             'auth' instanceof \Illuminate\Auth\AuthManager,
             'auth.driver' instanceof \Illuminate\Auth\Guard,
-            'Illuminate\Contracts\Auth\Authenticatable' instanceof \App\User,
             'Illuminate\Contracts\Auth\Access\Gate' instanceof \Illuminate\Auth\Access\Gate,
             'illuminate.route.dispatcher' instanceof \Illuminate\Routing\ControllerDispatcher,
             'cookie' instanceof \Illuminate\Cookie\CookieJar,
@@ -428,7 +429,6 @@ namespace PHPSTORM_META {
             'LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware' instanceof \LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware,
             'LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware' instanceof \LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware,
             'LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware' instanceof \LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware,
-            'hash' instanceof \Illuminate\Hashing\BcryptHasher,
             'Tymon\JWTAuth\JWTAuth' instanceof \Tymon\JWTAuth\JWTAuth,
             'Tymon\JWTAuth\Providers\User\UserInterface' instanceof \Tymon\JWTAuth\Providers\User\EloquentUserAdapter,
             'Tymon\JWTAuth\Providers\JWT\JWTInterface' instanceof \Tymon\JWTAuth\Providers\JWT\NamshiAdapter,
@@ -498,6 +498,9 @@ namespace PHPSTORM_META {
             'command.controller.make' instanceof \Illuminate\Routing\Console\ControllerMakeCommand,
             'command.middleware.make' instanceof \Illuminate\Routing\Console\MiddlewareMakeCommand,
             'command.session.database' instanceof \Illuminate\Session\Console\SessionTableCommand,
+            'hash' instanceof \Illuminate\Hashing\BcryptHasher,
+            'swift.transport' instanceof \Illuminate\Mail\TransportManager,
+            'swift.mailer' instanceof \Swift_Mailer,
             'mailer' instanceof \Illuminate\Mail\Mailer,
             'Illuminate\Contracts\Pipeline\Hub' instanceof \Illuminate\Pipeline\Hub,
             'queue' instanceof \Illuminate\Queue\QueueManager,
@@ -519,7 +522,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
         ],
-        app('') => [
+        \app('') => [
             '' == '@',
             'events' instanceof \Illuminate\Events\Dispatcher,
             'router' instanceof \Illuminate\Routing\Router,
@@ -531,7 +534,6 @@ namespace PHPSTORM_META {
             'Illuminate\Contracts\Debug\ExceptionHandler' instanceof \App\Exceptions\Handler,
             'auth' instanceof \Illuminate\Auth\AuthManager,
             'auth.driver' instanceof \Illuminate\Auth\Guard,
-            'Illuminate\Contracts\Auth\Authenticatable' instanceof \App\User,
             'Illuminate\Contracts\Auth\Access\Gate' instanceof \Illuminate\Auth\Access\Gate,
             'illuminate.route.dispatcher' instanceof \Illuminate\Routing\ControllerDispatcher,
             'cookie' instanceof \Illuminate\Cookie\CookieJar,
@@ -598,7 +600,6 @@ namespace PHPSTORM_META {
             'LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware' instanceof \LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware,
             'LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware' instanceof \LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware,
             'LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware' instanceof \LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware,
-            'hash' instanceof \Illuminate\Hashing\BcryptHasher,
             'Tymon\JWTAuth\JWTAuth' instanceof \Tymon\JWTAuth\JWTAuth,
             'Tymon\JWTAuth\Providers\User\UserInterface' instanceof \Tymon\JWTAuth\Providers\User\EloquentUserAdapter,
             'Tymon\JWTAuth\Providers\JWT\JWTInterface' instanceof \Tymon\JWTAuth\Providers\JWT\NamshiAdapter,
@@ -668,6 +669,9 @@ namespace PHPSTORM_META {
             'command.controller.make' instanceof \Illuminate\Routing\Console\ControllerMakeCommand,
             'command.middleware.make' instanceof \Illuminate\Routing\Console\MiddlewareMakeCommand,
             'command.session.database' instanceof \Illuminate\Session\Console\SessionTableCommand,
+            'hash' instanceof \Illuminate\Hashing\BcryptHasher,
+            'swift.transport' instanceof \Illuminate\Mail\TransportManager,
+            'swift.mailer' instanceof \Swift_Mailer,
             'mailer' instanceof \Illuminate\Mail\Mailer,
             'Illuminate\Contracts\Pipeline\Hub' instanceof \Illuminate\Pipeline\Hub,
             'queue' instanceof \Illuminate\Queue\QueueManager,

@@ -21,4 +21,24 @@ class ApiController extends Controller
         $this->middleware('jwt.auth');
     }
 
+    public function success($data)
+    {
+        $data = [
+            'code' => 0,
+            'msg' => 'ok',
+            'data' => $data
+        ];
+        return $data;
+    }
+
+    public function error($code = 500, $msg = 'error', $data = [])
+    {
+        $data = [
+            'code' => $code,
+            'msg' => $msg,
+            'data' => $data
+        ];
+        return $data;
+    }
+
 }

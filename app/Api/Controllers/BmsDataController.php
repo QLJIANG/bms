@@ -36,7 +36,7 @@ class BmsDataController extends ApiController
             $this->response()->errorNotFound();
         }
 
-        return response()->json($bmsData);
+        return $this->success($bmsData);
     }
 
     public function show(Request $request)
@@ -54,7 +54,7 @@ class BmsDataController extends ApiController
             $this->response()->errorNotFound();
         }
 
-        return response()->json($bmsData);
+        return $this->success($bmsData);
     }
 
 }

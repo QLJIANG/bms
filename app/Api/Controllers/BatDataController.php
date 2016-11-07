@@ -22,22 +22,38 @@ use Illuminate\Http\Request;
  */
 class BatDataController extends ApiController
 {
-    public function index()
+    public function index(Request $request)
     {
-        $bms = $this->user()->bms;
-
-        return response()->json($bms);
-    }
-
-    public function show($bmsId)
-    {
+        $bmsId = $request->get('bms_id');
         $bms = $this->user()->bms()->find($bmsId);
-
         if (!$bms) {
             $this->response()->errorNotFound();
         }
 
-        return response()->json($bms);
+        $bmsData = $bms->bmsData;
+        if (!$bmsData) {
+            $this->response()->errorNotFound();
+        }
+
+        return $this->success($bmsData);
+    }
+
+    public function show(Request $request)
+    {
+        $bmsId = $request->get('bms_id');
+        $bmsDataId = $request->get('bms_data_id');
+
+        $bms = $this->user()->bms()->find($bmsId);
+        if (!$bms) {
+            $this->response()->errorNotFound();
+        }
+
+        $bmsData = $bms->bmsData()->find($bmsDataId);
+        if (!$bmsData) {
+            $this->response()->errorNotFound();
+        }
+
+        return $this->success($bmsData);
     }
 
 }

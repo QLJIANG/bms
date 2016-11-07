@@ -10,7 +10,7 @@ namespace App\Api\Controllers;
 
 use App\Api\Requests\Auth\RegisterRequest;
 use App\Api\Transformers\UserTransformer;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,7 +35,7 @@ class AuthController extends ApiController
         $user = User::create($newUser);
         $token = JWTAuth::fromUser($user);
 
-        return response()->json(compact('token'));
+        return $this->success($token);
     }
 
     public function login(Request $request)
@@ -50,7 +50,7 @@ class AuthController extends ApiController
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
-        return response()->json(compact('token'));
+        return $this->success($token);
     }
 
     public function getAuthenticatedUser()

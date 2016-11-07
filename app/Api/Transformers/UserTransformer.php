@@ -9,7 +9,7 @@
 namespace App\Api\Transformers;
 
 
-use App\User;
+use App\Models\User;
 use League\Fractal\TransformerAbstract;
 
 class UserTransformer extends TransformerAbstract
@@ -19,7 +19,6 @@ class UserTransformer extends TransformerAbstract
         return [
             'id' => $user['id'],
             'name' => $user['name'],
-            'email' => $user['email'],
         ];
     }
 }

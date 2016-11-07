@@ -26,7 +26,7 @@ class BmsController extends ApiController
     {
         $bms = $this->user()->bms;
 
-        return response()->json($bms);
+        return $this->success($bms);
     }
 
     public function show(Request $request)
@@ -38,7 +38,7 @@ class BmsController extends ApiController
             $this->response()->errorNotFound();
         }
 
-        return response()->json($bms);
+        return $this->success($bms);
     }
 
 }

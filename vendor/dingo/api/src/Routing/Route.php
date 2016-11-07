@@ -25,12 +25,7 @@ class Route
      */
     protected $container;
 
-    /**
-     * Request instance.
-     *
-     * @var \Illuminate\Http\Request
-     */
-    protected $request;
+    protected $route;
 
     /**
      * Route URI.
@@ -144,14 +139,13 @@ class Route
     {
         $this->adapter = $adapter;
         $this->container = $container;
+        $this->route = $route;
 
         $this->setupRouteProperties($request, $route);
     }
 
     /**
      * Setup the route properties.
-     *
-     * @return void
      */
     protected function setupRouteProperties(Request $request, $route)
     {
@@ -159,7 +153,7 @@ class Route
 
         $this->versions = Arr::pull($this->action, 'version');
         $this->conditionalRequest = Arr::pull($this->action, 'conditionalRequest', true);
-        $this->middleware = Arr::pull($this->action, 'middleware', []);
+        $this->middleware = (array) Arr::pull($this->action, 'middleware', []);
         $this->throttle = Arr::pull($this->action, 'throttle');
         $this->scopes = Arr::pull($this->action, 'scopes', []);
         $this->authenticationProviders = Arr::pull($this->action, 'providers', []);
@@ -179,8 +173,6 @@ class Route
 
     /**
      * Merge the controller properties onto the route properties.
-     *
-     * @return void
      */
     protected function mergeControllerProperties()
     {
@@ -227,10 +219,9 @@ class Route
     /**
      * Find the controller options and whether or not it will apply to this routes controller method.
      *
-     * @param string   $option
-     * @param \Closure $callback
+     * @param string $name
      *
-     * @return void
+     * @return array
      */
     protected function findControllerPropertyOptions($name)
     {
@@ -304,7 +295,7 @@ class Route
             $traits = array_merge(class_uses($trait, false), $traits);
         }
 
-        return isset($traits['Dingo\Api\Routing\Helpers']);
+        return isset($traits[Helpers::class]);
     }
 
     /**
@@ -526,7 +517,7 @@ class Route
      */
     public function getActionName()
     {
-        return Arr::get($this->action, 'controller', 'Closure');
+        return Arr::get($this->action, 'controller', Arr::get($this->action, 'uses', 'Closure'));
     }
 
     /**
@@ -627,5 +618,15 @@ class Route
     public function domain()
     {
         return Arr::get($this->action, 'domain');
+    }
+
+    /**
+     * Get the original route.
+     *
+     * @return array|\Illuminate\Routing\Route
+     */
+    public function getOriginalRoute()
+    {
+        return $this->route;
     }
 }
