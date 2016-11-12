@@ -15,6 +15,11 @@ class Bms extends Model
 
     public function bat()
     {
-        return $this->hasMany(BmsBat::class, 'bms_id', 'id');
+        return $this->hasMany(Bat::class, 'bms_id', 'id');
+    }
+
+    public function user()
+    {
+        return $this->belongsToMany(User::class, 'bms_user', 'bms_id', 'user_id');
     }
 }

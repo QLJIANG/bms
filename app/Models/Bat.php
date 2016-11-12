@@ -12,4 +12,9 @@ class Bat extends Model
     {
         return $this->hasMany(BatData::class, 'bat_id', 'id');
     }
+
+    public function bms()
+    {
+        return $this->belongsTo(Bms::class, 'bms_id', 'id');
+    }
 }

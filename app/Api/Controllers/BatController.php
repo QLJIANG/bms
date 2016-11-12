@@ -12,6 +12,7 @@ use App\Api\Transformers\LessonTransformer;
 use App\Http\Requests\LessonIndexRequest;
 use App\Http\Requests\LessonStoreRequest;
 use App\Lesson;
+use App\Models\Bat;
 use Dingo\Api\Exception\ValidationHttpException;
 use Illuminate\Http\Request;
 
@@ -22,22 +23,33 @@ use Illuminate\Http\Request;
  */
 class BatController extends ApiController
 {
-    public function index()
+    public function index(Request $request)
     {
-        $bms = $this->user()->bms;
-
-        return response()->json($bms);
-    }
-
-    public function show($bmsId)
-    {
+        $bmsId = $request->get('bms_id');
         $bms = $this->user()->bms()->find($bmsId);
 
         if (!$bms) {
-            $this->response()->errorNotFound();
+            $this->response()->errorNotFound("bms not found");
+        }
+        $bat = $bms->bat()->get();
+
+        if (!$bat) {
+            $this->response()->errorNotFound("bms not found");
         }
 
-        return response()->json($bms);
+        return $this->success($bat);
+    }
+
+    public function show(Request $request)
+    {
+        $batId = $request->get('bat_id');
+        $bat = Bat::find($batId);
+        if (!$bat) {
+            $this->response()->errorNotFound();
+        }
+        $this->checkBatPri($bat);
+
+        return $this->success($bat);
     }
 
 }

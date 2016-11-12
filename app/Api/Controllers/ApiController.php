@@ -41,4 +41,20 @@ class ApiController extends Controller
         return $data;
     }
 
+    protected function checkBatPri($bat)
+    {
+        $userId = $bat->bms->user()->find($this->user()->id);
+        if (!$userId) {
+            $this->response()->errorForbidden("no privilege");
+        }
+    }
+
+    protected function checkBmsPri($bms)
+    {
+        $userId = $bms->user()->find($this->user()->id);
+        if (!$userId) {
+            $this->response()->errorForbidden("no privilege");
+        }
+    }
+
 }

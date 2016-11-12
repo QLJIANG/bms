@@ -12,6 +12,7 @@ use App\Api\Transformers\LessonTransformer;
 use App\Http\Requests\LessonIndexRequest;
 use App\Http\Requests\LessonStoreRequest;
 use App\Lesson;
+use App\Models\BmsData;
 use Dingo\Api\Exception\ValidationHttpException;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,6 @@ class BmsDataController extends ApiController
     public function index(Request $request)
     {
         $bmsId = $request->get('bms_id');
-        //$bms = $this->user()->bms()->where('id', $bmsId);  //这里不能用where，否则$bms->bmsData()会报错
         $bms = $this->user()->bms()->find($bmsId);
         if (!$bms) {
             $this->response()->errorNotFound();
@@ -41,18 +41,13 @@ class BmsDataController extends ApiController
 
     public function show(Request $request)
     {
-        $bmsId = $request->get('bms_id');
         $bmsDataId = $request->get('bms_data_id');
 
-        $bms = $this->user()->bms()->find($bmsId);
-        if (!$bms) {
-            $this->response()->errorNotFound();
-        }
-
-        $bmsData = $bms->bmsData()->find($bmsDataId);
+        $bmsData = BmsData::find($bmsDataId);
         if (!$bmsData) {
             $this->response()->errorNotFound();
         }
+        $this->checkBmsPri($bmsData->bms);
 
         return $this->success($bmsData);
     }

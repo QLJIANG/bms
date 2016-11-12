@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
          $this->call(BmsSeeder::class);
          $this->call(BatSeeder::class);
          $this->call(BmsUserSeeder::class);
-         $this->call(BmsBatSeeder::class);
          $this->call(BmsDataSeeder::class);
          $this->call(BatDataSeeder::class);
 

@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        \DB::listen(function($sql, $bindings, $time) {
+            $sql = str_replace(['%', '?'], ["'%%s'", "'%s'"], $sql);
+            \Log::info(vsprintf($sql, $bindings));
+        });
     }
 
     /**

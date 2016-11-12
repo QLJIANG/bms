@@ -12,6 +12,8 @@ use App\Api\Transformers\LessonTransformer;
 use App\Http\Requests\LessonIndexRequest;
 use App\Http\Requests\LessonStoreRequest;
 use App\Lesson;
+use App\Models\Bat;
+use App\Models\BatData;
 use Dingo\Api\Exception\ValidationHttpException;
 use Illuminate\Http\Request;
 
@@ -24,36 +26,27 @@ class BatDataController extends ApiController
 {
     public function index(Request $request)
     {
-        $bmsId = $request->get('bms_id');
-        $bms = $this->user()->bms()->find($bmsId);
-        if (!$bms) {
+        $batId = $request->get('bat_id');
+        $bat = Bat::find($batId);
+        if (!$bat) {
             $this->response()->errorNotFound();
         }
-
-        $bmsData = $bms->bmsData;
-        if (!$bmsData) {
-            $this->response()->errorNotFound();
-        }
-
-        return $this->success($bmsData);
+        $this->checkBatPri($bat);
+        $batData = BatData::where('bat_id', $batId)->get();
+        return $this->success($batData);
     }
 
     public function show(Request $request)
     {
-        $bmsId = $request->get('bms_id');
-        $bmsDataId = $request->get('bms_data_id');
+        $batDataId = $request->get('bat_data_id');
 
-        $bms = $this->user()->bms()->find($bmsId);
-        if (!$bms) {
+        $batData = BatData::find($batDataId);
+        if (!$batData) {
             $this->response()->errorNotFound();
         }
+        $this->checkBatPri($batData->bat);
 
-        $bmsData = $bms->bmsData()->find($bmsDataId);
-        if (!$bmsData) {
-            $this->response()->errorNotFound();
-        }
-
-        return $this->success($bmsData);
+        return $this->success($batData);
     }
 
 }

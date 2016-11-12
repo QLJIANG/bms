@@ -25,7 +25,9 @@ $factory->define(App\Models\Bms::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Models\Bat::class, function (Faker\Generator $faker) {
+    $bmsIds = \App\Models\Bms::lists('id')->toArray();
     return [
+        'bms_id' => $faker->randomElement($bmsIds),
         'factory' => $faker->company,
     ];
 });
@@ -36,15 +38,6 @@ $factory->define(App\Models\BmsUser::class, function (Faker\Generator $faker) {
     return [
         'bms_id' => $faker->randomElement($bmsIds),
         'user_id' => $faker->randomElement($userIds),
-    ];
-});
-
-$factory->define(App\Models\BmsBat::class, function (Faker\Generator $faker) {
-    $bmsIds = \App\Models\Bms::lists('id')->toArray();
-    $batIds = \App\Models\Bat::lists('id')->toArray();
-    return [
-        'bms_id' => $faker->randomElement($bmsIds),
-        'bat_id' => $faker->randomElement($batIds),
     ];
 });
 

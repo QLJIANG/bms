@@ -27,6 +27,12 @@ $api->version('v1', function ($api) {
 
         $api->get('bms_data/index', 'BmsDataController@index');
         $api->get('bms_data/show', 'BmsDataController@show');
+
+        $api->get('bat/index', 'BatController@index');
+        $api->get('bat/show', 'BatController@show');
+
+        $api->get('bat_data/index', 'BatDataController@index');
+        $api->get('bat_data/show', 'BatDataController@show');
     });
 });
 

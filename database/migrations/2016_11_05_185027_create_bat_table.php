@@ -14,6 +14,7 @@ class CreateBatTable extends Migration
     {
         Schema::create('bat', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('bms_id');
             $table->string('factory')->comment = '厂商';
             $table->timestamps();
             $table->softDeletes();
