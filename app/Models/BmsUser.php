@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
 /**
  * App\Models\BmsUser
  *
@@ -21,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\BmsUser whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\BmsUser whereDeletedAt($value)
  */
-class BmsUser extends Model
+class BmsUser extends Base
 {
     protected $table = 'bms_user';
 }

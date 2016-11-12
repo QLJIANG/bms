@@ -27,24 +27,17 @@ class BatDataController extends ApiController
     public function index(Request $request)
     {
         $batId = $request->get('bat_id');
-        $bat = Bat::find($batId);
-        if (!$bat) {
-            $this->response()->errorNotFound();
-        }
-        $this->checkBatPri($bat);
-        $batData = BatData::where('bat_id', $batId)->get();
-        return $this->success($batData);
+        $bat = Bat::findOrFail($batId);
+        $this->checkBmsPri($bat->bms);
+
+        return $this->success($bat->batData);
     }
 
     public function show(Request $request)
     {
         $batDataId = $request->get('bat_data_id');
-
-        $batData = BatData::find($batDataId);
-        if (!$batData) {
-            $this->response()->errorNotFound();
-        }
-        $this->checkBatPri($batData->bat);
+        $batData = BatData::findOrFail($batDataId);
+        $this->checkBmsPri($batData->bat->bms);
 
         return $this->success($batData);
     }

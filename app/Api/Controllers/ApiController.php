@@ -21,11 +21,11 @@ class ApiController extends Controller
         $this->middleware('jwt.auth');
     }
 
-    public function success($data)
+    public function success($data, $msg = 'ok')
     {
         $data = [
             'code' => 0,
-            'msg' => 'ok',
+            'msg' => $msg,
             'data' => $data
         ];
         return $data;
@@ -41,20 +41,10 @@ class ApiController extends Controller
         return $data;
     }
 
-    protected function checkBatPri($bat)
-    {
-        $userId = $bat->bms->user()->find($this->user()->id);
-        if (!$userId) {
-            $this->response()->errorForbidden("no privilege");
-        }
-    }
-
     protected function checkBmsPri($bms)
     {
-        $userId = $bms->user()->find($this->user()->id);
-        if (!$userId) {
-            $this->response()->errorForbidden("no privilege");
-        }
+        $userId = $this->user()->id;
+        $bms->user()->findOrFail($userId);
     }
 
 }

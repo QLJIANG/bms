@@ -26,16 +26,7 @@ class BatController extends ApiController
     public function index(Request $request)
     {
         $bmsId = $request->get('bms_id');
-        $bms = $this->user()->bms()->find($bmsId);
-
-        if (!$bms) {
-            $this->response()->errorNotFound("bms not found");
-        }
-        $bat = $bms->bat()->get();
-
-        if (!$bat) {
-            $this->response()->errorNotFound("bms not found");
-        }
+        $bat = $this->user()->bms()->findOrFail($bmsId)->bat;
 
         return $this->success($bat);
     }
@@ -43,11 +34,8 @@ class BatController extends ApiController
     public function show(Request $request)
     {
         $batId = $request->get('bat_id');
-        $bat = Bat::find($batId);
-        if (!$bat) {
-            $this->response()->errorNotFound();
-        }
-        $this->checkBatPri($bat);
+        $bat = Bat::findOrFail($batId);
+        $this->checkBmsPri($bat->bms);
 
         return $this->success($bat);
     }

@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
 /**
  * App\Models\Bat
  *
@@ -23,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Bat whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Bat whereDeletedAt($value)
  */
-class Bat extends Model
+class Bat extends Base
 {
     protected $table = 'bat';
 

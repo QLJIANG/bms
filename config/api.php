@@ -138,9 +138,9 @@ return [
 
     'errorFormat' => [
         'msg' => ':message',
-        'errors' => ':errors',
-//        'code' => ':code',
-        'code' => ':status_code',
+        //'errors' => ':errors',
+        'code' => ':code',
+        //'status_code' => ':status_code',
         'debug' => ':debug',
     ],
 
@@ -169,9 +169,6 @@ return [
 
     'auth' => [
         'jwt' => 'Dingo\Api\Auth\Provider\JWT',
-        //'jwt' => function ($app) {
-        //    return new Dingo\Api\Auth\Provider\JWT($app['Tymon\JWTAuth\JWTAuth']);
-        //}
     ],
 
     /*

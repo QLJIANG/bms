@@ -8,10 +8,7 @@
 
 namespace App\Api\Controllers;
 
-use App\Api\Transformers\LessonTransformer;
-use App\Http\Requests\LessonIndexRequest;
-use App\Http\Requests\LessonStoreRequest;
-use App\Lesson;
+use App\Models\Bms;
 use Dingo\Api\Exception\ValidationHttpException;
 use Illuminate\Http\Request;
 
@@ -32,11 +29,8 @@ class BmsController extends ApiController
     public function show(Request $request)
     {
         $bmsId = $request->get('bms_id');
-        $bms = $this->user()->bms()->find($bmsId);
-
-        if (!$bms) {
-            $this->response()->errorNotFound();
-        }
+        $bms = Bms::findOrFail($bmsId);
+        $this->checkBmsPri($bms);
 
         return $this->success($bms);
     }

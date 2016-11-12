@@ -26,15 +26,7 @@ class BmsDataController extends ApiController
     public function index(Request $request)
     {
         $bmsId = $request->get('bms_id');
-        $bms = $this->user()->bms()->find($bmsId);
-        if (!$bms) {
-            $this->response()->errorNotFound();
-        }
-
-        $bmsData = $bms->bmsData;
-        if (!$bmsData) {
-            $this->response()->errorNotFound();
-        }
+        $bmsData = $this->user()->bms()->findOrFail($bmsId)->bmsData;
 
         return $this->success($bmsData);
     }
@@ -42,11 +34,7 @@ class BmsDataController extends ApiController
     public function show(Request $request)
     {
         $bmsDataId = $request->get('bms_data_id');
-
-        $bmsData = BmsData::find($bmsDataId);
-        if (!$bmsData) {
-            $this->response()->errorNotFound();
-        }
+        $bmsData = BmsData::findOrFail($bmsDataId);
         $this->checkBmsPri($bmsData->bms);
 
         return $this->success($bmsData);
