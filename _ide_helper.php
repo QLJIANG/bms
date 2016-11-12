@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.1.45 (LTS) on 2016-11-07.
+ * Generated for Laravel 5.1.45 (LTS) on 2016-11-12.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -12506,7 +12506,7 @@ namespace {
          * @return \JWTAuth 
          * @static 
          */
-        public static function parseToken($method = 'bearer', $header = 'authorization', $query = 'token'){
+        public static function parseToken($method = 'bearer', $header = 'token', $query = 'token'){
             return \Tymon\JWTAuth\JWTAuth::parseToken($method, $header, $query);
         }
         
