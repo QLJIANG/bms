@@ -197,7 +197,7 @@ class JWTAuth
      *
      * @return JWTAuth
      */
-    public function parseToken($method = 'bearer', $header = 'authorization', $query = 'token')
+    public function parseToken($method = 'bearer', $header = 'token', $query = 'token')
     {
         if (! $token = $this->parseAuthHeader($header, $method)) {
             if (! $token = $this->request->query($query, false)) {

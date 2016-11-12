@@ -86,7 +86,7 @@ class JWT extends Authorization
      */
     protected function parseAuthorizationHeader(Request $request)
     {
-        return trim(str_ireplace($this->getAuthorizationMethod(), '', $request->header('authorization')));
+        return trim(str_ireplace($this->getAuthorizationMethod(), '', $request->header('token')));
     }
 
     /**
