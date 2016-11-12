@@ -35,7 +35,7 @@ class AuthController extends ApiController
         $user = User::create($newUser);
         $token = JWTAuth::fromUser($user);
 
-        return $this->success($token);
+        return $this->success(['token' => $token]);
     }
 
     public function login(Request $request)
@@ -50,7 +50,7 @@ class AuthController extends ApiController
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
-        return $this->success($token);
+        return $this->success(['token' => $token]);
     }
 
     public function getAuthenticatedUser()

@@ -15,12 +15,11 @@ $api->version('v1', function ($api) {
 
         $api->post('auth/login', 'AuthController@login');
         $api->post('auth/register', 'AuthController@register');
-
-        $api->resource('user', 'UserController');
-
         $api->group(['middleware' => 'jwt.auth'], function ($api) {
             $api->get('auth/me', 'AuthController@getAuthenticatedUser');
         });
+
+        $api->resource('user', 'UserController');
 
         $api->get('bms/index', 'BmsController@index');
         $api->get('bms/show', 'BmsController@show');
