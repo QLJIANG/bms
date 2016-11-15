@@ -8,15 +8,14 @@
 
 namespace App\Api\Controllers;
 
-use App\Models\BmsBat;
 use App\Models\User;
 
 class UserController extends ApiController
 {
     public function index()
     {
-        //return BmsBat::all('id')->toArray();
-        $ids = BmsBat::lists('id')->toArray();
-        return $ids;
+        $users = User::all();
+
+        return $this->success($users);
     }
 }

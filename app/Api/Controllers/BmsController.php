@@ -8,14 +8,11 @@
 
 namespace App\Api\Controllers;
 
+use App\Api\Requests\Bms\ShowRequest;
 use App\Models\Bms;
-use Dingo\Api\Exception\ValidationHttpException;
-use Illuminate\Http\Request;
-
 /**
- * Class LessonController
+ * Class BmsController
  * @package App\Api\Controllers
- * @resource("Lessons", uri="/lessons")
  */
 class BmsController extends ApiController
 {
@@ -26,7 +23,7 @@ class BmsController extends ApiController
         return $this->success($bms);
     }
 
-    public function show(Request $request)
+    public function show(ShowRequest $request)
     {
         $bmsId = $request->get('bms_id');
         $bms = Bms::findOrFail($bmsId);

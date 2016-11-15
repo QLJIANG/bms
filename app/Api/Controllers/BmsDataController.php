@@ -8,13 +8,9 @@
 
 namespace App\Api\Controllers;
 
-use App\Api\Transformers\LessonTransformer;
-use App\Http\Requests\LessonIndexRequest;
-use App\Http\Requests\LessonStoreRequest;
-use App\Lesson;
+use App\Api\Requests\BmsData\ShowRequest;
 use App\Models\BmsData;
-use Dingo\Api\Exception\ValidationHttpException;
-use Illuminate\Http\Request;
+use Dingo\Api\Http\Request;
 
 /**
  * Class LessonController
@@ -31,7 +27,7 @@ class BmsDataController extends ApiController
         return $this->success($bmsData);
     }
 
-    public function show(Request $request)
+    public function show(ShowRequest $request)
     {
         $bmsDataId = $request->get('bms_data_id');
         $bmsData = BmsData::findOrFail($bmsDataId);

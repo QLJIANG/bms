@@ -50,7 +50,7 @@ class User extends Base implements AuthenticatableContract, AuthorizableContract
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = ['password', 'remember_token', 'deleted_at'];
 
     public function bms()
     {

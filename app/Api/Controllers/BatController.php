@@ -8,22 +8,17 @@
 
 namespace App\Api\Controllers;
 
-use App\Api\Transformers\LessonTransformer;
-use App\Http\Requests\LessonIndexRequest;
-use App\Http\Requests\LessonStoreRequest;
-use App\Lesson;
+use App\Api\Requests\Bat\IndexRequest;
+use App\Api\Requests\Bat\ShowRequest;
 use App\Models\Bat;
-use Dingo\Api\Exception\ValidationHttpException;
-use Illuminate\Http\Request;
 
 /**
  * Class LessonController
  * @package App\Api\Controllers
- * @resource("Lessons", uri="/lessons")
  */
 class BatController extends ApiController
 {
-    public function index(Request $request)
+    public function index(IndexRequest $request)
     {
         $bmsId = $request->get('bms_id');
         $bat = $this->user()->bms()->findOrFail($bmsId)->bat;
@@ -31,7 +26,7 @@ class BatController extends ApiController
         return $this->success($bat);
     }
 
-    public function show(Request $request)
+    public function show(ShowRequest $request)
     {
         $batId = $request->get('bat_id');
         $bat = Bat::findOrFail($batId);

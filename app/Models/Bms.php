@@ -38,4 +38,9 @@ class Bms extends Base
     {
         return $this->belongsToMany(User::class, 'bms_user', 'bms_id', 'user_id');
     }
+
+    public function batData()
+    {
+        return $this->hasManyThrough(BatData::class, Bat::class, 'bms_id', 'bat_id');
+    }
 }

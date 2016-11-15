@@ -15,7 +15,6 @@ class ApiController extends Controller
 {
     use Helpers;
 
-    //protected $middleware ='jwt.auth';
     public function __construct()
     {
         $this->middleware('jwt.auth');
