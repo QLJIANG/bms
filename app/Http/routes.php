@@ -1,15 +1,11 @@
 <?php
-//Auth::loginUsingId(2);
 
 $api = app('Dingo\Api\Routing\Router');
-
 //$dispatcher = app('Dingo\Api\Dispatcher');
 
 $api->version('v1', function ($api) {
 
-    $api->get('/', function () {
-        return ['api.laravel.dev'];
-    });
+    $api->get('/', '\App\Http\Controllers\WelcomeController@api');
 
     $api->group(['namespace' => 'App\Api\Controllers'], function ($api) {
 
@@ -32,4 +28,6 @@ $api->version('v1', function ($api) {
         $api->get('bat_data/show', 'BatDataController@show');
     });
 });
+
+get('/', 'WelcomeController@index');
 
