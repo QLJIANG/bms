@@ -65,9 +65,9 @@ class JWT extends Authorization
     protected function getToken(Request $request)
     {
         try {
-            $this->validateAuthorizationHeader($request);
-
-            $token = $this->parseAuthorizationHeader($request);
+            //$this->validateAuthorizationHeader($request);
+            //$token = $this->parseAuthorizationHeader($request);
+            $token = $request->header('token');
         } catch (Exception $exception) {
             if (! $token = $request->query('token', false)) {
                 throw $exception;

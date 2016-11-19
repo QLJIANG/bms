@@ -199,6 +199,7 @@ class JWTAuth
      */
     public function parseToken($method = 'bearer', $header = 'token', $query = 'token')
     {
+        //if (! $token = $this->parseAuthHeader($header, $method)) {
         if (! $token = $this->parseAuthHeader($header, $method)) {
             if (! $token = $this->request->query($query, false)) {
                 throw new JWTException('The token could not be parsed from the request', 400);
@@ -216,15 +217,14 @@ class JWTAuth
      *
      * @return false|string
      */
-    protected function parseAuthHeader($header = 'authorization', $method = 'bearer')
+    protected function parseAuthHeader($header = 'token', $method = 'bearer')
     {
-        $header = $this->request->headers->get($header);
+        return $this->request->headers->get($header);
+        //if (! starts_with(strtolower($header), $method)) {
+        //    return false;
+        //}
 
-        if (! starts_with(strtolower($header), $method)) {
-            return false;
-        }
-
-        return trim(str_ireplace($method, '', $header));
+        //return trim(str_ireplace($method, '', $token));
     }
 
     /**
