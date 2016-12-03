@@ -8,6 +8,7 @@
 
 namespace App\Api\Controllers;
 
+use App\Api\Requests\BmsData\IndexRequest;
 use App\Api\Requests\BmsData\ShowRequest;
 use App\Models\BmsData;
 use Dingo\Api\Http\Request;
@@ -19,17 +20,19 @@ use Dingo\Api\Http\Request;
  */
 class BmsDataController extends ApiController
 {
-    public function index(Request $request)
+    public function index(IndexRequest $request)
     {
-        $bmsId = $request->get('bms_id');
-        $bmsData = $this->user()->bms()->findOrFail($bmsId)->bmsData;
+        $request->init();
+        $bmsId = $request->bms_id;
+        $cnt = $request->cnt;
+        $bmsData = $this->user()->bms()->findOrFail($bmsId)->bmsData->sortByDesc('created_at')->take($cnt);
 
         return $this->success($bmsData);
     }
 
     public function show(ShowRequest $request)
     {
-        $bmsDataId = $request->get('bms_data_id');
+        $bmsDataId = $request->bms_data_id;
         $bmsData = BmsData::findOrFail($bmsDataId);
         $this->checkBmsPri($bmsData->bms);
 

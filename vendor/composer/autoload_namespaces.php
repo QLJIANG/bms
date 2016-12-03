@@ -9,6 +9,7 @@ return array(
     'System' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'PhpSpec' => array($vendorDir . '/phpspec/phpspec/src'),
+    'Orangehill\\Iseed' => array($vendorDir . '/orangehill/iseed/src'),
     'Net' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
     'Namshi\\JOSE' => array($vendorDir . '/namshi/jose/src'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),

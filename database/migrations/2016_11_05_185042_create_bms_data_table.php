@@ -19,8 +19,8 @@ class CreateBmsDataTable extends Migration
             $table->float('soh')->comment = '健康状况';
             $table->float('vol')->comment = '电压';
             $table->float('res')->comment = '电阻';
-            $table->float('longitude')->comment = '维度';
-            $table->float('latitude')->comment = '经度';
+            $table->float('longitude')->comment = '经度';
+            $table->float('latitude')->comment = '维度';
             $table->float('altitude')->comment = '海拔';
             $table->float('speed')->comment = '速度';
             $table->integer('locate_mode')->comment = '定位模式';

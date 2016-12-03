@@ -21,16 +21,17 @@ class BatDataController extends ApiController
 {
     public function index(IndexRequest $request)
     {
-        $batId = $request->get('bat_id');
+        $batId = $request->bat_id;
         $bat = Bat::findOrFail($batId);
         $this->checkBmsPri($bat->bms);
+        $batData = $bat->batData->sortByDesc('created_at')->take($request->cnt);
 
-        return $this->success($bat->batData);
+        return $this->success($batData);
     }
 
     public function show(ShowRequest $request)
     {
-        $batDataId = $request->get('bat_data_id');
+        $batDataId = $request->bat_data_id;
         $batData = BatData::findOrFail($batDataId);
         $this->checkBmsPri($batData->bat->bms);
 

@@ -6,7 +6,7 @@
  * Time: 2:02 PM
  */
 
-namespace App\Api\Requests\BatData;
+namespace App\Api\Requests\Station;
 
 use App\Api\Requests\ApiRequest;
 
@@ -15,13 +15,14 @@ class IndexRequest extends ApiRequest
     public function rules()
     {
         return [
-            'bat_id' => 'required|min:1',
-            'cnt'    => 'min:1',
+            'lon' => 'required|numeric|min:-180|max:180',
+            'lat' => 'required|numeric|min:-90|max:90',
+            'radius' => 'numeric',
         ];
     }
 
     public function init()
     {
-        $this->cnt = $this->cnt ?: 100;
+        $this->radius = $this->radius ?: 1000;
     }
 }

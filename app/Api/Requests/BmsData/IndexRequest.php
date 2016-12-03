@@ -16,6 +16,12 @@ class IndexRequest extends ApiRequest
     {
         return [
             'bms_id' => 'required|min:1',
+            'cnt'    => 'min:1',
         ];
+    }
+
+    public function init()
+    {
+        $this->cnt = $this->cnt ?: 100;
     }
 }

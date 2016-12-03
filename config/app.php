@@ -147,6 +147,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Dingo\Api\Provider\LaravelServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+		Orangehill\Iseed\IseedServiceProvider::class,
     ],
 
     /*

@@ -71,3 +71,13 @@ $factory->define(App\Models\BatData::class, function (Faker\Generator $faker) {
         'res' => $faker->randomFloat(2, 100, 2000),
     ];
 });
+
+$factory->define(App\Models\Station::class, function (Faker\Generator $faker) {
+    $total = $faker->randomFloat(0, 5, 10);
+    return [
+        'longitude' => $faker->randomFloat(6, 121.1, 121.8),
+        'latitude' => $faker->randomFloat(6, 30.8, 31.4),
+        'total' => $total,
+        'available' => $faker->randomFloat(0, 0, $total),
+    ];
+});

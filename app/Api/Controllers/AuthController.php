@@ -55,7 +55,7 @@ class AuthController extends ApiController
 
     public function getAuthenticatedUser()
     {
-        return $this->response->item($this->user(), new UserTransformer());
-        //return $this->success($this->user);
+        //return $this->response->item($this->user(), new UserTransformer());
+        return $this->success($this->user);
     }
 }

@@ -22,8 +22,8 @@ class ModelNotFoundException extends RuntimeException
     public function setModel($model)
     {
         $this->model = $model;
-        $this->code = 404;
-        $this->message = "Not Found";
+
+        $this->message = "No query results for model [{$model}].";
 
         return $this;
     }

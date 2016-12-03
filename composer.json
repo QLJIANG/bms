@@ -10,7 +10,8 @@
         "barryvdh/laravel-ide-helper": "^2.1",
         "dingo/api": "1.0.*@dev",
         "tymon/jwt-auth": "0.5.*",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "orangehill/iseed": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
