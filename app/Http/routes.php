@@ -26,6 +26,7 @@ $api->version('v1', function ($api) {
 
         $api->get('bat_data/index', 'BatDataController@index');
         $api->get('bat_data/show', 'BatDataController@show');
+        $api->get('bat_data/latest', 'BatDataController@latest');
 
         $api->get('station/index', 'StationController@index');
         $api->get('station/show', 'StationController@show');

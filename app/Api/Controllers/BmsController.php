@@ -25,7 +25,7 @@ class BmsController extends ApiController
 
     public function show(ShowRequest $request)
     {
-        $bmsId = $request->get('bms_id');
+        $bmsId = $request->bms_id;
         $bms = Bms::findOrFail($bmsId);
         $this->checkBmsPri($bms);
 

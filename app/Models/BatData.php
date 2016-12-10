@@ -34,4 +34,9 @@ class BatData extends Base
     {
         return $this->belongsTo(Bat::class, 'bat_id', 'id');
     }
+
+    public function scopeLatest($query)
+    {
+        return $query->orderBy('created_at', 'desc')->first();
+    }
 }

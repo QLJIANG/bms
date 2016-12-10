@@ -9,9 +9,11 @@
 namespace App\Api\Controllers;
 
 use App\Api\Requests\BatData\IndexRequest;
+use App\Api\Requests\BatData\LatestRequest;
 use App\Api\Requests\BatData\ShowRequest;
 use App\Models\Bat;
 use App\Models\BatData;
+use App\Models\Bms;
 
 /**
  * Class LessonController
@@ -35,6 +37,16 @@ class BatDataController extends ApiController
         $batData = BatData::findOrFail($batDataId);
         $this->checkBmsPri($batData->bat->bms);
 
+        return $this->success($batData);
+    }
+
+    public function latest(LatestRequest $request)
+    {
+        $bmsId = $request->bms_id;
+        $bats = $this->user()->bms()->findOrFail($bmsId)->bat;
+        foreach ($bats as $bat) {
+            $batData[] = $bat->batData()->latest();
+        }
         return $this->success($batData);
     }
 
